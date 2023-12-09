@@ -8,9 +8,9 @@ export const useError = () => {
   const resetEditedTask = useStore((state) => state.resetEditedTask)
   const getCsrfToken = async () => {
     const { data } = await axios.get<CsrfToken>(
-      `${process.env.REACT_APP_API_URL}/api/csrf`
+      `${process.env.REACT_APP_API_URL}/csrf`
     )
-    axios.defaults.headers.common['X-CSRF-Token'] = data.csrf_token
+    axios.defaults.headers.common['X-CSRF-Token'] = data.csrfToken
   }
   const switchErrorHandling = (msg: string) => {
     switch (msg) {
