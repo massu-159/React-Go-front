@@ -1,11 +1,11 @@
 export type Task = {
   id: number
   title: string
-  createdAt: Date
-  updatedAt: Date
+  created_at: Date
+  updated_at: Date
 }
 export type CsrfToken = {
-  csrf_token: string
+  csrfToken: string
 }
 export type Credential = {
   email: string

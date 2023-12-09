@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import { Todo } from './components/Todo'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Auth } from './components/Auth'
-import { CsrfToken } from './types'
+import { Todo } from './components/Todo'
 import axios from 'axios'
+import { CsrfToken } from './types'
 
 function App() {
   useEffect(() => {
@@ -12,7 +12,8 @@ function App() {
       const { data } = await axios.get<CsrfToken>(
         `${process.env.REACT_APP_API_URL}/csrf`
       )
-      axios.defaults.headers.common['X-CSRF-Token'] = data.csrf_token
+      axios.defaults.headers.common['X-CSRF-Token'] = data.csrfToken
+      
     }
     getCsrfToken()
   }, [])
