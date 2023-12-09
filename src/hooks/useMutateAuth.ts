@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useError } from './useError'
 import useStore from '../store'
 import axios from 'axios'
+import { Credential } from '../types'
 
 export const useMutateAuth = () => {
   const navigate = useNavigate()
